@@ -155,6 +155,9 @@
     NavigationService.prototype.menuItems = function() {
         return this._menuItems;
     };
+    NavigationService.prototype.clearMenuItems = function() {
+        this._menuItems = {};
+    };
     "use strict";
     angular.module("eehNavigation").directive("eehNavigationMenuItemContent", MenuItemContentDirective);
     function MenuItemContentDirective(eehNavigation) {
@@ -279,14 +282,13 @@
     angular.module("eehNavigation").directive("eehNavigationNavbar", [ "$window", "eehNavigation", NavbarDirective ]);
     "use strict";
     angular.module("eehNavigation").directive("eehNavigationSearchInput", SearchInputDirective);
-    function SearchInputDirective(eehNavigation) {
+    function SearchInputDirective(eehNavigation, sidebarService) {
         return {
             restrict: "AE",
             transclude: true,
             templateUrl: "template/eeh-navigation/search-input/eeh-navigation-search-input.html",
             scope: {
                 iconClass: "=",
-                submit: "=",
                 classes: "=",
                 isCollapsed: "="
             },
@@ -297,10 +299,13 @@
                 scope.iconBaseClass = function() {
                     return eehNavigation.iconBaseClass();
                 };
+                scope.submit = function(query) {
+                    sidebarService.search(query);
+                }
             }
         };
     }
-    SearchInputDirective.$inject = [ "eehNavigation" ];
+    SearchInputDirective.$inject = [ "eehNavigation", "sidebarService" ];
     "use strict";
     angular.module("eehNavigation").directive("eehNavigationSidebar", SidebarDirective);
     function SidebarDirective($window, eehNavigation) {

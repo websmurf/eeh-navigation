@@ -179,12 +179,12 @@ angular.module('eehNavigation').run(['$templateCache', function($templateCache) 
   $templateCache.put('template/eeh-navigation/sidebar/eeh-navigation-sidebar.html',
     "<nav class=\"navbar navbar-default eeh-navigation eeh-navigation-sidebar\" role=\"navigation\"\n" +
     "    ng-class=\"navClass\">\n" +
+    "<div class=\"customer-logo navigator-slider-default-hidden\"><img src=\"https://static.nostradamus.nu/templates/intern.koeckers.nl/1444205929-PH_logo_2015_met-ondertitel-groen_DEF.png\" class=\"img-responsive center-block\" border=\"0\"></div>"+
     "    <div class=\"navbar-collapse\" uib-collapse=\"isNavbarCollapsed\">\n" +
     "        <ul class=\"nav sidebar-nav\">\n" +
     "            <li class=\"sidebar-search\" ng-if=\"searchInputIsVisible\">\n" +
     "                <eeh-navigation-search-input class=\"sidebar-search-input\"\n" +
     "                                             icon-class=\"searchInputIconClass\"\n" +
-    "                                             submit=\"searchInputSubmit\"\n" +
     "                                             is-collapsed=\"sidebarIsCollapsed\"></eeh-navigation-search-input>\n" +
     "            </li>\n" +
     "            <li ng-repeat=\"item in sidebarMenuItems | orderBy:'weight'\"\n" +
