@@ -179,6 +179,7 @@ angular.module('eehNavigation').run(['$templateCache', function($templateCache) 
   $templateCache.put('template/eeh-navigation/sidebar/eeh-navigation-sidebar.html',
     "<nav class=\"navbar navbar-default eeh-navigation eeh-navigation-sidebar\" role=\"navigation\"\n" +
     "    ng-class=\"navClass\">\n" +
+    " <nos-logo></nos-logo>"+ 
     "<div class=\"customer-logo navigator-slider-default-hidden\"><img src=\"https://static.nostradamus.nu/templates/intern.koeckers.nl/1444205929-PH_logo_2015_met-ondertitel-groen_DEF.png\" class=\"img-responsive center-block\" border=\"0\"></div>"+
     "    <div class=\"navbar-collapse\" uib-collapse=\"isNavbarCollapsed\">\n" +
     "        <ul class=\"nav sidebar-nav\">\n" +
