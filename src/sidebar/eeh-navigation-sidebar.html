@@ -36,7 +36,7 @@
     <a ng-if="item.state" ui-sref="{{item.state}}">
         <span eeh-navigation-menu-item-content="item"></span>
     </a>
-    <a ng-if="item.click" ng-click="item.click()" tooltip-placement="right"  uib-tooltip="{{sidebarIsCollapsed ? (item.text | translate) : '' }}">
+    <a ng-if="item.click" ng-click="item.click()" tooltip-placement="right"  uib-tooltip="{{sidebarIsCollapsed ? (item.text | translate) : '' }}" tooltip-append-to-body="true">
         <span eeh-navigation-menu-item-content="item"></span>
     </a>
     <a ng-if="item.href" ng-href="{{item.href}}" target="{{item.target ? item.target : '_self'}}">
