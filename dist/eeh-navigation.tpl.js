@@ -216,7 +216,7 @@ angular.module('eehNavigation').run(['$templateCache', function($templateCache) 
     "    <a ng-if=\"item.state\" ui-sref=\"{{item.state}}\">\n" +
     "        <span eeh-navigation-menu-item-content=\"item\"></span>\n" +
     "    </a>\n" +
-    "    <a ng-if=\"item.click\" ng-click=\"item.click()\" tooltip-placement=\"right\"  uib-tooltip=\"{{sidebarIsCollapsed ? (item.text | translate) : '' }}\" >\n" +
+    "    <a ng-if=\"item.click\" ng-click=\"item.click()\" tooltip-placement=\"right\"  uib-tooltip=\"{{sidebarIsCollapsed ? (item.text | translate) : '' }}\" tooltip-append-to-body=\"true\" >\n" +
     "        <span eeh-navigation-menu-item-content=\"item\"></span>\n" +
     "    </a>\n" +
     "    <a ng-if=\"item.href\" ng-href=\"{{item.href}}\" target=\"{{item.target ? item.target : '_self'}}\">\n" +
