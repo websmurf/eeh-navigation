@@ -192,6 +192,7 @@ angular.module('eehNavigation').run(['$templateCache', function($templateCache) 
     "                ng-include=\"'template/eeh-navigation/sidebar-menu-item.html'\"\n" +
     "                ng-class=\"{ 'leaf': !item.hasChildren() }\"\n" +
     "                ng-if=\"item._isVisible()\"\n" +
+    "                ng-init=\"level = 1\"\n" +
     "                ng-click=\"topLevelMenuItemClickHandler(item)\"fire\n" +
     "                ui-sref-active-eq=\"active\"\n" +
     "                eeh-navigation-active-menu-item=\"item\"></li>\n" +
@@ -216,7 +217,7 @@ angular.module('eehNavigation').run(['$templateCache', function($templateCache) 
     "    <a ng-if=\"item.state\" ui-sref=\"{{item.state}}\">\n" +
     "        <span eeh-navigation-menu-item-content=\"item\"></span>\n" +
     "    </a>\n" +
-    "    <a ng-if=\"item.click\" ng-click=\"item.click()\" tooltip-placement=\"right\"  uib-tooltip=\"{{sidebarIsCollapsed ? (item.text | translate) : '' }}\" tooltip-append-to-body=\"true\" >\n" +
+    "    <a ng-if=\"item.click\" ng-click=\"item.click()\" tooltip-placement=\"right\"  uib-tooltip=\"{{sidebarIsCollapsed && level == 1 ? (item.text | translate) : '' }}\" tooltip-append-to-body=\"true\" >\n" +
     "        <span eeh-navigation-menu-item-content=\"item\"></span>\n" +
     "    </a>\n" +
     "    <a ng-if=\"item.href\" ng-href=\"{{item.href}}\" target=\"{{item.target ? item.target : '_self'}}\">\n" +
@@ -233,6 +234,7 @@ angular.module('eehNavigation').run(['$templateCache', function($templateCache) 
     "        class=\"nav sidebar-nav sidebar-nav-nested\">\n" +
     "        <li ng-repeat=\"item in item.children()\"\n" +
     "            ng-include=\"'template/eeh-navigation/sidebar-menu-item.html'\"\n" +
+    "            ng-init=\"level = level + 1\"\n" +
     "            ng-class=\"{ 'leaf': !item.hasChildren() }\"\n" +
     "            ng-if=\"item._isVisible()\"\n" +
     "            ui-sref-active-eq=\"active\"\n" +
